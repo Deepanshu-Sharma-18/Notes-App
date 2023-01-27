@@ -3,6 +3,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hive/hive.dart';
+import 'package:notesapp/Screens/NotesDetail.dart';
 import 'package:notesapp/utils/DataModel_Hive.dart';
 
 import 'Dimensions.dart';
@@ -53,7 +54,17 @@ class _CustomNoteState extends State<CustomNote> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onDoubleTap: () {
+      onTap: () {
+        Navigator.push(context, MaterialPageRoute(builder: ((context) {
+          return NoteDetail(
+            box: widget.box,
+            title: widget.title,
+            description: widget.description,
+            hivekey: widget.hiveKey,
+          );
+        })));
+      },
+      onLongPress: () {
         widget.box.delete(widget.box.keyAt(widget.hiveKey));
       },
       child: Container(
