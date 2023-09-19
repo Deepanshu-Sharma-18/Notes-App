@@ -66,28 +66,28 @@ class _NotesScreenState extends State<NotesScreen> {
     return Scaffold(
       backgroundColor: isDarkMode ? Colors.black : Colors.white,
       floatingActionButton: Container(
-        margin: EdgeInsets.only(right: 40),
-        height: 70,
-        width: 70,
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(50),
-        ),
-        child: Center(
-          child: FloatingActionButton(
-            backgroundColor: Color(0xFC00B2FF),
-            onPressed: () {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => ExpandedNote()));
-            },
-            elevation: 20,
-            child: Icon(
-              Icons.add,
-              size: Dimension.size30,
+        width: 80,
+        height: 100,
+        alignment: Alignment.center,
+        child: Padding(
+          padding: const EdgeInsets.only(right: 10),
+          child: Center(
+            child: FloatingActionButton(
+              backgroundColor: Color(0xFC00B2FF),
+              onPressed: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => ExpandedNote()));
+              },
+              elevation: 20,
+              child: Icon(
+                Icons.add,
+                size: Dimension.size30,
+              ),
             ),
           ),
         ),
       ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.endDocked,
+      floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
       body: SafeArea(
         child: Container(
           margin:
@@ -167,70 +167,12 @@ class _NotesScreenState extends State<NotesScreen> {
         ),
       ),
       bottomNavigationBar: Container(
-        height: 70,
-        child: Stack(
-          children: [
-            Positioned(
-              bottom: 0,
-              left: 0,
-              right: 0,
-              child: Container(
-                height: 70,
-                decoration: BoxDecoration(
-                  color: Color.fromARGB(255, 111, 185, 242),
-                  borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(20),
-                    topRight: Radius.circular(20),
-                  ),
-                ),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Container(
-                      margin: EdgeInsets.only(left: Dimension.size30),
-                      width: Dimension.card175,
-                      child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceAround,
-                          children: [
-                            // IconButton(
-                            //   onPressed: () {},
-                            //   icon: Icon(Icons.check_circle_outline_rounded),
-                            //   iconSize: Dimension.size30,
-                            //   color: Colors.white,
-                            // ),
-                            // IconButton(
-                            //   onPressed: () {},
-                            //   icon: Icon(Icons.mic_rounded),
-                            //   iconSize: Dimension.size30,
-                            //   color: Colors.white,
-                            // ),
-                            // IconButton(
-                            //   onPressed: () {},
-                            //   icon: Icon(Icons.camera_alt),
-                            //   iconSize: Dimension.size30,
-                            //   color: Colors.white,
-                            // ),
-                          ]),
-                    )
-                  ],
-                ),
-              ),
-            ),
-            Positioned(
-                bottom: 35,
-                right: 56,
-                child: Container(
-                  height: 40,
-                  width: 70,
-                  decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.only(
-                          bottomRight: Radius.circular(33),
-                          bottomLeft: Radius.circular(33))),
-                ))
-          ],
-        ),
-      ),
+          height: 30,
+          child: Container(
+            height: 30,
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(70), color: noteColor[9]),
+          )),
     );
   }
 }
